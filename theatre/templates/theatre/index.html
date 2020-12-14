@@ -1,0 +1,115 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}LCA Theatre{% endblock %}
+<!-- Add Active Index -->
+{% block indexActivePage %}active{% endblock %}
+<!-- Main Body -->
+{% block body %}
+<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__item set-bg" data-setbg="{% static 'theatre/img/hero/hero-1.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>For all kinds of movies</span>
+                            <h2>Movies for fun</h2>
+                            <a href="{% url 'theatre:allMovies' %}" class="primary-btn">Check all movies</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="{% static 'theatre/img/hero/hero-1.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>For all kinds of movies</span>
+                            <h2>Buy new movies with spare coins</h2>
+                            <a href="{% url 'theatre:allMovies' %}" class="primary-btn">Check all movies</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item set-bg" data-setbg="{% static 'theatre/img/hero/hero-1.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <span>For all kinds of movies</span>
+                            <h2>Authenticated buy and sell</h2>
+                            <a href="{% url 'theatre:allMovies' %}" class="primary-btn">Check all movies</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="services__title">
+                    <div class="section-title">
+                        <span>Our services</span>
+                        <h2>What We do?</h2>
+                    </div>
+                    <p>If you register with LCA theatre, you will get 20 spare coins as a gift to access from the list of our movies. You can use it to buy different movies from different genres.</p>
+                    <a href="{% url 'theatre:register' %}" class="primary-btn">Register Now</a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="{% static 'theatre/img/icons/si-1.png' %}" alt="">
+                            </div>
+                            <h4>Digital Buy</h4>
+                            <p>Buy the most amazing of the movies with the help of spare coins. Spare Coin is a digtal currency used extensively for transactions done on this website.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="{% static 'theatre/img/icons/si-2.png' %}" alt="">
+                            </div>
+                            <h4>Wholesome Content</h4>
+                            <p>Select from a variety of movies and services which keeps the user engaging and more heart-warming on the platform.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="{% static 'theatre/img/icons/si-3.png' %}" alt="">
+                            </div>
+                            <h4>Seamless Movies</h4>
+                            <p>Time to grab your popcorn! Enjoy services with break-free video clips and movies which are solely created for you.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="services__item">
+                            <div class="services__item__icon">
+                                <img src="{% static 'theatre/img/icons/si-4.png' %}" alt="">
+                            </div>
+                            <h4>HD Videos</h4>
+                            <p>Quality content is the main aim of our platform. Because the kind of things you own end up owning you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->
+{% endblock %}

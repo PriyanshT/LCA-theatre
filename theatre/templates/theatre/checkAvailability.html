@@ -1,0 +1,43 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}Check Movie:LCA Theatre{% endblock %}
+<!-- Add Active Index -->
+{% block allmoviesActivePage %}active{% endblock %}
+<!-- Main Body -->
+{% block body %}
+
+
+<section class="portfolio spad">
+    <div style="height:20px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 text-center text-white">
+                {% if notAvail == 1 %}
+                <h2>{{ movie.movie_title }}</h2>
+                <h5>Movie available for Purchase!</h5>{% for message in messages %}
+                <p id="messages" class="text-danger">{{message}}</p>
+                {% endfor %}
+                <img src="{{ movie.thumbnail.url }}" alt="Thumbnail" width="60%" height="auto"><br><br>
+                <h4>Price : {{ movie.price }} Spare Coins</h4><br>
+                <h5><a type="button" class="btn btn-danger" href="{% url 'theatre:buyMovie' movie.movie_title %}">Buy Now</a></h5>
+                {% else %}
+                <h2>{{ movie.movie_title }}</h2>
+                <h5>Movie already Bought!</h5> {% for message in messages %}
+                <p id="messages" class="text-success">{{message}}</p>
+                {% endfor %}
+                <img src="{{ movie.thumbnail.url }}" alt="Thumbnail" width="60%" height="auto"><br><br>
+                <h4>Price : {{ movie.price }} Spare Coins</h4><br>
+                <h5><a type="button" class="btn btn-danger" href="{% url 'theatre:movieView' movie.clip %}">Watch Now</a></h5>
+                {% endif %}
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

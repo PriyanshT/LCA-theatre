@@ -1,0 +1,68 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}All Movies:LCA Theatre{% endblock %}
+<!-- Add Active Index -->
+{% block allmoviesActivePage %}active{% endblock %}
+<!-- Main Body -->
+{% block body %}
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="{% static 'theatre/img/breadcrumb-bg.jpg'%}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>All Movies</h2>
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'theatre:index' %}">Home</a>
+                        <span>All Movies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Portfolio Section Begin -->
+<section class="portfolio spad">
+    <div class="container">
+        <div class="row portfolio__gallery">
+            {% if my_movies %} {% for singleMovie in all_movies %}
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="portfolio__item">
+                    <div class="portfolio__item__video set-bg" data-setbg="{{ singleMovie.thumbnail.url }}">
+                    </div>
+                    <div class="portfolio__item__text">
+                        <h4>{{ singleMovie.movie_title }}</h4>
+                        <ul>
+                            <li>Price : {{ singleMovie.price }} Spare Coin</li>
+                            <li><a href="{% url 'theatre:checkAvailability' singleMovie.movie_title %}">Check Availability</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% else %} {% for singleMovie in all_movies %}
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="portfolio__item">
+                    <div class="portfolio__item__video set-bg" data-setbg="{{ singleMovie.thumbnail.url }}">
+                    </div>
+                    <div class="portfolio__item__text">
+                        <h4>{{ singleMovie.movie_title }}</h4>
+                        <ul>
+                            <li>Price : {{ singleMovie.price }} Spare Coin</li>
+                            <li><a href="{% url 'theatre:checkAvailability' singleMovie.movie_title  %}">Check Availability</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} {% endif %}
+        </div>
+    </div>
+</section>
+<!-- Portfolio Section End -->
+
+
+{% endblock %}

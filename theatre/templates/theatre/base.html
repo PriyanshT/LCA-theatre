@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'theatre/img/favicon.ico'%}" type="image/x-icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'theatre/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'theatre/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="header__logo">
+                        <a href="{% url 'theatre:index' %}"><img src="{% static 'theatre/img/lcalogo.png'%}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav__option">
+                        <nav class="header__nav__menu mobile-menu">
+                            <ul>
+                                <li class="{% block indexActivePage %}{% endblock %}"><a href="{% url 'theatre:index' %}">Home</a></li>
+                                <li class="{% block allmoviesActivePage %}{% endblock %}"><a href="{% url 'theatre:allMovies' %}">All Movies</a></li>
+                                <li class="{% block mymoviesActivePage %}{% endblock %}"><a href="{% url 'theatre:myMovies' %}">My Movies</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="header__nav__social text-white">Welcome, {{ user.username }}!</li>
+                                <li class="text-white">Spare Coins: {{ spareCoin.spare_coin }}</li>
+                                <li><a href="{% url 'theatre:logout' %}">Log Out</a></li>
+                                {% else %}
+                                <li class="header__nav__social text-white">Welcome, Guest!</li>
+                                <li class="{% block registerActivePage %}{% endblock %}"><a href="{% url 'theatre:register' %}">Sign Up</a></li>
+                                <li class="{% block loginActivePage %}{% endblock %}"><a href="{% url 'theatre:login' %}">Log In</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    {% block body %} {% endblock %}
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="footer__copyright__text">Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            All rights reserved | This project is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/priyansh-thakar-64bbba141/" target="_blank">Priyansh Thakar</a><br> View Project on
+                            <a href="https://github.com/PriyanshT/LCA-theatre" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'theatre/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'theatre/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'theatre/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'theatre/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'theatre/js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'theatre/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'theatre/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'theatre/js/main.js' %}"></script>
+</body>
+
+</html>

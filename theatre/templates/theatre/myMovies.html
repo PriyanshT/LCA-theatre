@@ -1,0 +1,66 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}My Movies:LCA Theatre{% endblock %}
+<!-- Add Active Index -->
+{% block mymoviesActivePage %}active{% endblock %}
+<!-- Main Body -->
+{% block body %}
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="{% static 'theatre/img/breadcrumb-bg.jpg'%}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>My Movies</h2>
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'theatre:index' %}">Home</a>
+                        <span>My Movies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Portfolio Section Begin -->
+<section class="portfolio spad">
+    <div class="container">
+        <div class="row portfolio__gallery">
+            {% if my_movies %} {% for singleMovie in my_movies %}
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="portfolio__item">
+                    <div class="portfolio__item__video set-bg" data-setbg="{{ singleMovie.movie.thumbnail.url }}">
+                        <a href="{% url 'theatre:movieView' singleMovie.movie.clip %}" class="play-btn"><i
+                                class="fa fa-play"></i></a>
+                    </div>
+                    <div class="portfolio__item__text">
+                        <h4>{{ singleMovie.movie.movie_title }}</h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div style="height:20px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="text-center text-white col-8">
+                    <h3>You don't have any movies!</h3>
+                    <a href="{% url 'theatre:allMovies' %}">Buy Now!</a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<!-- Portfolio Section End -->
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}Login:LCA Theatre{% endblock %}
+<!-- Add Active Index -->
+{% block loginActivePage %}active{% endblock %}
+<!-- Main Body -->
+{% block body %}
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option spad set-bg" data-setbg="{% static 'theatre/img/breadcrumb-bg.jpg'%}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Login</h2>
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'theatre:index' %}">Home</a>
+                        <span>Login</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<section class="contact spad">
+    <div class="container">
+        <div style="height: 30px;"></div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6">
+                <div class="contact__form">
+                    <form method="POST" action="">
+                        {% csrf_token %} {% for message in messages %}
+                        <p id="messages">{{message}}</p>
+                        {% endfor %}
+                        <input type="text" name="username" id="username" placeholder="Username">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <button type="submit" name="submit" class="site-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

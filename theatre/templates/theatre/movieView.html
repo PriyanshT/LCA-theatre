@@ -1,0 +1,27 @@
+<!-- include files -->
+{% extends 'theatre/base.html' %}
+<!-- include static files -->
+{% load static %}
+<!-- Add Title -->
+{% block title %}Play Movie:LCA Theatre{% endblock %}
+<!-- Main Body -->
+{% block body %}
+
+
+<section class="portfolio spad">
+    <div style="height:20px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <video width="100%" height="auto" controls>
+                    <source src='{{ movie.clip.url }}' type='video/mp4'>
+                </video>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

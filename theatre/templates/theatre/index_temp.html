@@ -1,0 +1,9 @@
+{% load staticfiles %} {% if all_movies %}
+<ul>
+    {% for movie in all_movies %}
+    <li><a href="{% url 'theatre:movieDetail' movie.id %}">{{ movie.movie_title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<h3>You don't have any movies!</h3>
+{% endif %}
