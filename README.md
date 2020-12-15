@@ -1,1 +1,1 @@
-# LCA-theatre
+# LCA Theatre
