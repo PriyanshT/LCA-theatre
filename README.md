@@ -1,5 +1,5 @@
 # LCA Theatre using Django/python back-end and mysql database
-## A django web application which allows users to register, login, purchase, and view movies added by admin.
+## A Django web application which allows users to register, login, purchase, and view movies added by admin.
 This project was completed by me as part of a self-initiated assignment.<br>
 MySQL database is used rather than already available SQLite to gain more knowledge and to handle more data.
 
