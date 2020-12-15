@@ -54,15 +54,25 @@ Watch YouTube working video <a href="https://www.youtube.com/watch?v=Lsh8XKdAk3o
 
 ## Screenshots : 
 ### Home Page
+<img src="screenshots/home1.jpg" width="48%" height="auto"> <img src="screenshots/home2.jpg" width="48%" height="auto">
+<img src="screenshots/home3.jpg" width="48%" height="auto">
 
 ### All Movies page
+<img src="screenshots/allmovies1.jpg" width="48%" height="auto"> <img src="screenshots/allmovies2.jpg" width="48%" height="auto">
+<img src="screenshots/allmovies3.jpg" width="48%" height="auto">
 
 ### My Movies Page
+<img src="screenshots/mymovies1.jpg" width="48%" height="auto">
 
 ### Register
+<img src="screenshots/register.jpg" width="48%" height="auto">
 
 ### Login
+<img src="screenshots/login.jpg" width="48%" height="auto">
 
 ### Admin Panel
+<img src="screenshots/admin1.jpg" width="48%" height="auto"> <img src="screenshots/admin2.jpg" width="48%" height="auto">
+<img src="screenshots/admin3.jpg" width="48%" height="auto">
 
 ### Database
+<img src="screenshots/db1.jpg" width="48%" height="auto">
